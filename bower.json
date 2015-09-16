@@ -1,0 +1,21 @@
+{
+  "name": "facebookApp",
+  "version": "0.0.1",
+  "authors": [
+    "Binoy Patel <binoypatel14@gmail.com>"
+  ],
+  "description": "Get facebook data for social network analysis",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-facebook": "~0.2.3",
+    "angular": "~1.4.5",
+    "bootstrap": "v4-dev"
+  }
+}
