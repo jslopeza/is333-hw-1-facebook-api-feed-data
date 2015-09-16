@@ -11,7 +11,7 @@ angular.module('app')
     $scope.login = function(){
       Facebook.login(function(response){
         console.log(response);
-      })
+      }, {scope : 'user_posts, user_friends'})
     };
 
     $scope.getLoginStatus = function(){
@@ -37,7 +37,7 @@ angular.module('app')
 
     $scope.friendList = function(){
       var userId = $scope.user.id;
-      Facebook.api('/friend-list-id', function(response){
+      Facebook.api('/me/feed', function(response){
         console.log(response);
       })
     }
