@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('authenticationCtrl', function($scope, Facebook){
+  .controller('authenticationCtrl', function($scope, $http, Facebook){
     $scope.$watch(function() {
       // This is for convenience, to notify if Facebook is loaded and ready to go.
       return Facebook.isReady();
@@ -31,14 +31,23 @@ angular.module('app')
       Facebook.api('/me', function(response){
         console.log(response);
         $scope.user = response;
-        $scope.friendList();
       })
     };
 
-    $scope.friendList = function(){
+    $scope.getFriendList = function(){
       var userId = $scope.user.id;
-      Facebook.api('/me/feed', function(response){
-        console.log(response);
+      Facebook.api('/me/feed', function(responses){
+        var data = responses.data;
+        data.forEach(function(res){
+          console.log(res);
+          $http.post('/api/feed', res)
+        })
+      })
+    }
+
+    $scope.writeToFile = function(){
+      $http.get('/api/feed').then(function(res){
+        console.log(res);
       })
     }
 

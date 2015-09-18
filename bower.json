@@ -14,8 +14,9 @@
     "tests"
   ],
   "dependencies": {
-    "angular-facebook": "~0.2.3",
     "angular": "~1.4.5",
+    "angular-facebook": "~0.2.3",
+    "async": "~1.4.2",
     "bootstrap": "v4-dev"
   }
 }
